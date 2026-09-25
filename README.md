@@ -64,7 +64,7 @@ A prescaler divides the clock before it reaches the timer. This allows the timer
 
 ### R3
 
-<!-- Add response here -->
+10 nF is more desirable for hardware debouncing because it creates a larger RC time constant than 1 nF. This smooths out the rapid voltage fluctuations caused by mechanical switch bounce, reducing the chance that one physical button press is detected as multiple presses. The tradeoff is that the signal responds more slowly, but 10 nF provides better filtering for debouncing.
 
 ## Part E: Morse Decoder
 
