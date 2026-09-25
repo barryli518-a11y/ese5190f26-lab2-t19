@@ -1,9 +1,16 @@
-# ESE 5190 Lab 2: Morse Code Decoder
 
-## Team Members
+# Lab 2 Morse
 
-- Name:
-- Name:
+**Team Name/Number: 19**
+
+**GitHub Repository URL: https://github.com/barryli518-a11y/ese5190f26-lab2-t19.git **
+
+| Team Member Name | Email Address       | GitHub Handle       |
+|------------------|---------------------|---------------------|
+| [Eric Yao]         | [yaoe@engineering.upenn.edu]           | [eric-yaoza]          |
+| [Zikang Li]         | [zikangl@engineering.upenn.edu]           | [barryli518-a11y]          |
+
+
 
 ## Part A: LEDs and Pushbutton
 
