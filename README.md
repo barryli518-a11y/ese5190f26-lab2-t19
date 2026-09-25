@@ -68,8 +68,7 @@ A prescaler divides the clock before it reaches the timer. This allows the timer
 
 ## Part E: Morse Decoder
 
-<!-- Add notes or images here -->
-
+(C2): file name is lab2c2.c
 ## Part F: Morse Encoder
 
-<!-- Add notes or images here -->
+(C3) file name is lab2c3.c
