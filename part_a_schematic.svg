@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="640" viewBox="0 0 960 640">
+  <style>
+    text { font-family: Arial, sans-serif; fill: #172235; font-size: 18px; }
+    .title { font-size: 26px; font-weight: bold; }
+    .small { font-size: 15px; }
+    .wire { stroke: #172235; stroke-width: 3; fill: none; }
+    .part { stroke: #172235; stroke-width: 3; fill: white; }
+    .pin { fill: #dfe9fb; stroke: #172235; stroke-width: 2; }
+  </style>
+  <rect width="960" height="640" fill="white"/>
+  <text x="40" y="48" class="title">Part A — ATmega328PB LED and button circuit</text>
+  <text x="40" y="78" class="small">Common 5 V supply and ground; PB0 is active high</text>
+
+  <rect x="42" y="120" width="170" height="440" rx="12" class="pin"/>
+  <text x="62" y="151">ATmega328PB</text>
+  <text x="62" y="198">PB0 / pin 8</text>
+  <text x="62" y="279">PB1 / pin 9</text>
+  <text x="62" y="359">PB2 / pin 10</text>
+  <text x="62" y="439">PB3 / pin 11</text>
+  <text x="62" y="519">PB4 / pin 12</text>
+
+  <!-- Button: +5 V through normally open switch to PB0, 10 kOhm pull-down. -->
+  <path class="wire" d="M212 192 H320 M385 192 H605 M270 192 V225"/>
+  <circle cx="320" cy="192" r="5" fill="#172235"/>
+  <circle cx="385" cy="192" r="5" fill="#172235"/>
+  <path class="wire" d="M323 188 L378 169"/>
+  <text x="304" y="154" class="small">pushbutton (NO)</text>
+  <text x="608" y="198">+5 V</text>
+  <rect x="253" y="225" width="34" height="63" class="part"/>
+  <path class="wire" d="M270 288 V313 M255 313 H285 M260 320 H280 M265 327 H275"/>
+  <text x="299" y="264" class="small">10 kΩ pull-down</text>
+  <text x="299" y="313" class="small">GND</text>
+
+  <!-- Each branch: output, current limit resistor, LED, ground. -->
+  <g id="led-row-1">
+    <path class="wire" d="M212 273 H340 M393 273 H555 M606 273 H735 M735 273 V299"/>
+    <rect x="340" y="257" width="53" height="32" class="part"/>
+    <text x="342" y="242" class="small">1 kΩ</text>
+    <circle cx="580" cy="273" r="25" class="part"/>
+    <path class="wire" d="M567 260 L591 273 L567 286 Z M592 255 V291"/>
+    <path class="wire" d="M607 250 l20 -18 m-9 0 h9 v9 M615 260 l20 -18 m-9 0 h9 v9"/>
+    <path class="wire" d="M720 299 H750 M725 306 H745 M730 313 H740"/>
+    <text x="755" y="281" class="small">GND</text>
+  </g>
+  <text x="547" y="228" class="small">LED 1</text>
+  <g transform="translate(0 80)">
+    <use href="#led-row-1"/>
+    <text x="547" y="228" class="small">LED 2</text>
+  </g>
+  <g transform="translate(0 160)">
+    <use href="#led-row-1"/>
+    <text x="547" y="228" class="small">LED 3</text>
+  </g>
+  <g transform="translate(0 240)">
+    <use href="#led-row-1"/>
+    <text x="547" y="228" class="small">LED 4</text>
+  </g>
+  <text x="40" y="608" class="small">LED anodes face the PB outputs; LED cathodes face GND. Each LED has its own resistor.</text>
+</svg>
