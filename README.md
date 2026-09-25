@@ -15,28 +15,22 @@
 ## Part A: LEDs and Pushbutton
 
 ### S1: Blinking LEDs
-
-<!-- Add image here -->
-
+![alt text](lab2s1-1.png)
 ### S2: Button Controlled LED
-
-<!-- Add image here -->
+![alt text](lab2s2.png)
 
 ### S3: Cycling LEDs
-
-<!-- Add image here -->
+![alt text](lab2s3.png)
 
 ### S4: Circuit Schematic
-
-<!-- Add image here -->
+![alt text](lab2s4.png)
 
 ## Part B: Interrupts
 
+# (C1) 
 The program uses Timer1 input capture interrupts on PB0. The built-in LED turns on when the button is pressed and turns off when it is released.
 
-### Stop & Think
-
-Interrupts allow the CPU to perform other work while waiting for an input. Polling continuously uses CPU time. Interrupts require more setup, and switch bounce can cause multiple interrupt events.
+Code is attached in lab2c1.c
 
 ## Part C: Dash or Dot
 
@@ -44,27 +38,29 @@ Interrupts allow the CPU to perform other work while waiting for an input. Polli
 
 For a 16 MHz clock:
 
-- 50 ms = 800,000 ticks
-- 200 ms = 3,200,000 ticks
-- 400 ms = 6,400,000 ticks
+N = f * t
+
+50 ms: 16000000 * 0.050 = 800,000 ticks 
+
+200 ms = 16,000,000 × 0.200 = 3,200,000 ticks
+
+400 ms = 16,000,000 × 0.400 = 6,400,000 ticks
+
 
 ### R2
 
-A prescaler divides the clock before it reaches the timer. This allows the timer to measure longer intervals before overflowing, but reduces timing resolution.
+A prescaler divides the clock before it reaches the timer. This allows the timer to measure longer intervals before overflowing (allows us to measure much lower frequencies), but reduces timing resolution.
 
 ## Part D: Hardware Debouncing
 
 ### I1: Circuit
-
-<!-- Add image here -->
+![alt text](lab2i1.jpg)
 
 ### I2: 1 nF Measurement
-
-<!-- Add image here -->
+![alt text](lab2i2.jpg)
 
 ### I3: 10 nF Measurement
-
-<!-- Add image here -->
+![alt text](lab2i3.jpg)
 
 ### R3
 
