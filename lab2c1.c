@@ -1,42 +1,57 @@
 #include <avr/io.h>
 #include <avr/interrupt.h>
 
-// Part B: external button on PB0/ICP1, with a 10 kOhm pull-down.
-// The Xplained Mini's built-in LED is on PB5 (high = on).
 ISR(TIMER1_CAPT_vect)
 {
-    if (PINB & (1 << PB0)) {
-        PORTB |= (1 << PB5);       // Pressed: LED on
-        TCCR1B &= ~(1 << ICES1);   // Capture the falling edge next
-    } else {
-        PORTB &= ~(1 << PB5);      // Released: LED off
-        TCCR1B |= (1 << ICES1);    // Capture the rising edge next
+    // Button currently HIGH = pressed
+    if (PINB & (1 << PB0))
+    {
+        PORTB |= (1 << PB5);       // LED ON
+        // Detect falling edge next
+        TCCR1B &= ~(1 << ICES1);
     }
-
-    TIFR1 = (1 << ICF1);           // Clear capture flag after changing edge
+    else
+    {
+        PORTB &= ~(1 << PB5);      // LED OFF
+        // Detect rising edge next
+        TCCR1B |= (1 << ICES1);
+    }
+    // Clear input capture flag
+    TIFR1 = (1 << ICF1);
 }
 
 int main(void)
 {
-    DDRB &= ~(1 << PB0);           // PB0 input
-    PORTB &= ~(1 << PB0);          // External pull-down; no internal pull-up
-    DDRB |= (1 << PB5);            // Built-in LED output
+    // PB0 input
+    DDRB &= ~(1 << PB0);
+    PORTB &= ~(1 << PB0);
 
-    TCCR1A = 0;                   // Timer1 normal mode
+    // PB5 onboard LED output
+    DDRB |= (1 << PB5);
+    PORTB &= ~(1 << PB5);
 
-    if (PINB & (1 << PB0)) {
-        PORTB |= (1 << PB5);
-        TCCR1B = (1 << ICNC1) | (1 << CS11) | (1 << CS10);
-    } else {
-        PORTB &= ~(1 << PB5);
-        TCCR1B = (1 << ICNC1) | (1 << ICES1) | (1 << CS11) | (1 << CS10);
-    }
+    // Reset Timer1 configuration
+    TCCR1A = 0;
+    TCCR1B = 0;
 
-    TIFR1 = (1 << ICF1);           // Discard any capture during setup
-    TIMSK1 |= (1 << ICIE1);        // Enable Timer1 input capture interrupt
-    sei();                         // Enable global interrupts
+    // Rising edge first
+    TCCR1B |= (1 << ICES1);
 
-    while (1) {
-        // The interrupt handles button changes.
+    // Start Timer1: clock / 64
+    TCCR1B |= (1 << CS11) | (1 << CS10);
+
+    // Clear pending capture flag
+    TIFR1 = (1 << ICF1);
+
+    // Enable Timer1 Input Capture interrupt
+    TIMSK1 |= (1 << ICIE1);
+
+    // Global interrupt enable
+    sei();
+
+    while (1)
+    {
+        // Everything happens in ISR
     }
 }
+
