@@ -30,7 +30,7 @@
 # (C1) 
 The program uses Timer1 input capture interrupts on PB0. The built-in LED turns on when the button is pressed and turns off when it is released.
 
-Code is attached in lab2c1.c
+Code is attached in [lab2c1.c](https://github.com/barryli518-a11y/ese5190f26-lab2-t19/blob/main/lab2c1.c)
 
 ## Part C: Dash or Dot
 
@@ -68,7 +68,7 @@ A prescaler divides the clock before it reaches the timer. This allows the timer
 
 ## Part E: Morse Decoder
 
-(C2): file name is lab2c2.c
+(C2): file name is [lab2c2.c](https://github.com/barryli518-a11y/ese5190f26-lab2-t19/blob/main/lab2c2.c)
 ## Part F: Morse Encoder
 
-(C3) file name is lab2c3.c
+(C3) file name is [lab2c3.c](https://github.com/barryli518-a11y/ese5190f26-lab2-t19/blob/main/lab2c3.c)
